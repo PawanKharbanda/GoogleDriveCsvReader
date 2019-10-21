@@ -88,43 +88,7 @@ class Reader extends React.Component {
 
 
 
-    // async getToken(params) {
-    //     console.log("in token");
-    //     console.log(params.code)
-    //     var client_id = '244815184745-afh9k5gomtgb4u0j8krjhrcjsrr0p2fu.apps.googleusercontent.com';
-    //     var client_secret = 'gMwQF-dnuPEzDNxcZxRpDgd5';
-    //     var scope = "https://www.googleapis.com/auth/drive";
-    //     var redirect_uri = "http://localhost:3000/";
-    //     await axios({
-    //         method: 'POST',
-    //         url: "https://www.googleapis.com/oauth2/v4/token",
-
-
-    //         data: {
-    //             code:params.code
-    //             , redirect_uri: redirect_uri,
-    //             client_secret: client_secret,
-    //             client_id: client_id,
-    //             scope: scope,
-    //             grant_type: "authorization_code"
-    //         },
-    //     })
-    //         .then(await function (response) {
-    //             try {
-    //                 console.log("token");
-    //                 console.log(response);
-    //             }
-    //             catch (error) {
-    //                 console.log(error)
-    //             }
-    //         })
-    //         .catch(await function (error) {
-    //             console.log(":::::ERROR:::::");
-    //             console.log(error);
-    //         });
-
-    // }
-
+    
 //Firstly Called when page loaded
     componentDidMount() {
         this.handleClientLoad();
@@ -134,9 +98,9 @@ class Reader extends React.Component {
     async handleClientLoad() {
 
         gapi.load('client:auth2', function () {
-            var clientId = '244815184745-afh9k5gomtgb4u0j8krjhrcjsrr0p2fu.apps.googleusercontent.com';
+            var clientId = 'YOUR Client Id';
             var scope = "https://www.googleapis.com/auth/drive.metadata.readonly";
-            var apiKey = 'AIzaSyBzU1NC1YNYKcwPp76dfAdcsr883fVeyK8';
+            var apiKey = 'YOUR api key';
             var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
 
             //Fetching
@@ -200,16 +164,7 @@ class Reader extends React.Component {
 
     //User AUthentication
     async getdata(event) {
-        // var clientId = '244815184745-afh9k5gomtgb4u0j8krjhrcjsrr0p2fu.apps.googleusercontent.com';
-        // //var apiKey = 'AIzaSyDIbUi6x-X2ZpQy2_X5lTZ4jZQyrDJOsDw';
-        // var clientSecret = 'gMwQF-dnuPEzDNxcZxRpDgd5';
-        // var scope = "https://www.googleapis.com/auth/drive";
-        // var redirect_uri = "http://localhost:3000/";
-
-        // const apiUrl = "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=" + redirect_uri + "&prompt=consent&response_type=code&client_id=" + clientId + "&scope=" + scope + "&access_type=offline";
-        // console.log(apiUrl);
-        // console.log("bAfter")
-        // window.open(apiUrl, "_self");
+       
         gapi.auth2.getAuthInstance().signIn();
 
     }
